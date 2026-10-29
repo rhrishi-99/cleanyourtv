@@ -1,0 +1,13 @@
+{
+  "dock_apps": [
+    "com.netflix.ninja",
+    "in.startv.hotstar",
+    "com.google.android.youtube.tv",
+    "com.amazon.amazonvideo.livingroom"
+  ],
+  "columns": 4,
+  "hidden_apps": ["com.android.tv", "com.mitv.dream", "com.mitv.gallery"],
+  "live_tv_package": "com.android.tv",
+  "background_color": "#000000",
+  "wallpaper": false
+}

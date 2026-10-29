@@ -1,0 +1,48 @@
+# Xiaomi MiTV-AXSO0 (dangal; Mi TV 4C Pro 2019 / 4A Pro), Android TV 9 (SDK 28), firmware PI.6036.
+# This TV's list, based on examples/xiaomi-mitv-axso0 with the owner's choices (2026-10-29):
+#   kept on purpose: Chromecast (mediashell), Mi Cast / Mi Share / Miracast, Netflix, Prime Video, YouTube,
+#   YouTube Music, JioHotstar, Spotify, TalkBack, the TV app and droidlogic TV inputs, Media Player, Video
+#   Player, Mi screensaver, TV lock, Play Store, Play Services, Gboard.
+#   disabled by choice: Google Assistant, Xiaomi firmware updates, Airtel Xstream, SonyLIV, ZEE5, Sun NXT.
+#
+# Apply:  powershell -ExecutionPolicy Bypass -File tools\disable.ps1 -TvHost <tv ip> work\debloat.txt
+# Undo:   powershell -ExecutionPolicy Bypass -File work\restore.ps1 -TvHost <tv ip>
+# Everything is DISABLED for user 0, never uninstalled.
+# Lines starting "#bN# " are batches not applied yet; each run uncomments one batch.
+
+# Batch 1: Xiaomi + Google telemetry
+com.miui.tv.analytics
+com.xiaomi.statistic
+com.google.android.feedback
+com.google.android.tv.bugreportsender
+
+# Batch 2: PatchWall, content rows, sponsored rows, partner auto-installs
+com.mitv.tvhome.atv                               # PatchWall (the remote's PatchWall button stops working)
+com.xm.webcontent
+com.xiaomi.floatingframe
+com.google.android.tvrecommendations              # also feeds the stock launcher's notification panel
+com.google.android.leanbacklauncher.recommendations
+android.autoinstalls.config.xioami.dangal         # Play auto-install of partner apps (sic, "xioami")
+
+# Batch 3: Xiaomi background services, and the owner's choices
+com.xiaomi.mitv.tvmanager                         # "TV Manager" cleaner
+com.xiaomi.mitv.handbook
+com.xiaomi.mitv.updateservice                     # firmware updates: re-enable to check for one
+com.google.android.katniss                        # Google Assistant (the mic button stops working)
+com.google.android.speech.pumpkin
+
+# Batch 4: preloaded apps, and Android extras a TV without camera, printer or SIM doesn't use
+com.xiaomi.mimusic2
+com.mitv.gallery                                  # Mi Gallery; Media Player still opens USB photos
+com.google.android.play.games
+com.google.android.videos                         # Play Movies & TV
+com.android.camera2
+com.android.gallery3d
+com.android.printspooler
+com.android.smspush
+
+# Batch 5: streaming apps the owner does not use
+tv.airtel.xstream.tvapp
+com.sonyliv
+com.graymatrix.did                                # ZEE5
+com.suntv.sunnxt
